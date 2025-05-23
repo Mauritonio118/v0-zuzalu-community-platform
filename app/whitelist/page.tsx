@@ -88,12 +88,6 @@ export default function WhitelistPage() {
     }
   }
 
-  // If already whitelisted, redirect to dashboard
-  if (isConnected && isWhitelisted) {
-    router.push("/dashboard")
-    return null
-  }
-
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />

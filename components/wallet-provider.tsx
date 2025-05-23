@@ -10,6 +10,7 @@ type WalletContextType = {
   connect: () => Promise<string | null>
   disconnect: () => void
   checkWhitelistStatus: () => Promise<boolean>
+  updateBalance: (newBalance: number) => void
 }
 
 const WalletContext = createContext<WalletContextType>({
@@ -20,6 +21,7 @@ const WalletContext = createContext<WalletContextType>({
   connect: async () => null,
   disconnect: () => {},
   checkWhitelistStatus: async () => false,
+  updateBalance: () => {},
 })
 
 export const useWallet = () => useContext(WalletContext)
@@ -33,10 +35,16 @@ export function WalletProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     // Check if wallet was previously connected
     const savedAddress = localStorage.getItem("walletAddress")
+    const savedBalance = localStorage.getItem("walletBalance")
+
     if (savedAddress) {
       setAddress(savedAddress)
       setIsConnected(true)
       checkWhitelistStatus()
+    }
+
+    if (savedBalance) {
+      setBalance(Number.parseFloat(savedBalance))
     }
   }, [])
 
@@ -78,6 +86,7 @@ export function WalletProvider({ children }: { children: ReactNode }) {
     setIsConnected(false)
     setIsWhitelisted(null)
     localStorage.removeItem("walletAddress")
+    localStorage.removeItem("walletBalance")
   }
 
   const checkWhitelistStatus = async (): Promise<boolean> => {
@@ -94,6 +103,11 @@ export function WalletProvider({ children }: { children: ReactNode }) {
     })
   }
 
+  const updateBalance = (newBalance: number) => {
+    setBalance(newBalance)
+    localStorage.setItem("walletBalance", newBalance.toString())
+  }
+
   const value = {
     address,
     isConnected,
@@ -102,6 +116,7 @@ export function WalletProvider({ children }: { children: ReactNode }) {
     connect,
     disconnect,
     checkWhitelistStatus,
+    updateBalance,
   }
 
   return <WalletContext.Provider value={value}>{children}</WalletContext.Provider>

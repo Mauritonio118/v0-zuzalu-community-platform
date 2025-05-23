@@ -45,14 +45,16 @@ export function Navbar() {
           >
             Home
           </Link>
-          <Link
-            href="/dashboard"
-            className={`text-sm font-medium transition-colors hover:text-primary ${
-              pathname === "/dashboard" ? "text-primary" : "text-muted-foreground"
-            }`}
-          >
-            Dashboard
-          </Link>
+          {isConnected && (
+            <Link
+              href="/dashboard"
+              className={`text-sm font-medium transition-colors hover:text-primary ${
+                pathname === "/dashboard" ? "text-primary" : "text-muted-foreground"
+              }`}
+            >
+              Dashboard
+            </Link>
+          )}
           <Link
             href="/whitelist"
             className={`text-sm font-medium transition-colors hover:text-primary ${
@@ -87,15 +89,17 @@ export function Navbar() {
               >
                 Home
               </Link>
-              <Link
-                href="/dashboard"
-                className={`p-2 text-sm font-medium transition-colors hover:text-primary ${
-                  pathname === "/dashboard" ? "text-primary" : "text-muted-foreground"
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Dashboard
-              </Link>
+              {isConnected && (
+                <Link
+                  href="/dashboard"
+                  className={`p-2 text-sm font-medium transition-colors hover:text-primary ${
+                    pathname === "/dashboard" ? "text-primary" : "text-muted-foreground"
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Dashboard
+                </Link>
+              )}
               <Link
                 href="/whitelist"
                 className={`p-2 text-sm font-medium transition-colors hover:text-primary ${

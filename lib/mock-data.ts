@@ -170,3 +170,126 @@ export const howItWorksSteps = [
     icon: "RefreshCw",
   },
 ]
+
+// Past events data
+export const pastEventsData = [
+  {
+    id: 1,
+    name: "Zuzalu Montenegro Kickoff",
+    date: "March 15, 2024",
+    place: "Budva, Montenegro",
+    attendees: 120,
+    description:
+      "Opening ceremony for the Zuzalu Montenegro residency with welcome talks, networking sessions, and community building activities.",
+    organizer: "0x1234...5678",
+    totalExpenses: 2850,
+    links: [
+      "https://drive.google.com/folder/zuzalu-montenegro-kickoff",
+      "https://twitter.com/zuzalu/status/1234567890",
+      "https://www.youtube.com/watch?v=example1",
+    ],
+    photos: [
+      "/placeholder.svg?height=200&width=300",
+      "/placeholder.svg?height=200&width=300",
+      "/placeholder.svg?height=200&width=300",
+    ],
+    receipts: [
+      { name: "Venue_rental_receipt.pdf", type: "pdf" },
+      { name: "Catering_invoice.pdf", type: "pdf" },
+      { name: "Equipment_rental.jpg", type: "image" },
+    ],
+  },
+  {
+    id: 2,
+    name: "Crypto Privacy Workshop",
+    date: "April 8, 2024",
+    place: "Lisbon, Portugal",
+    attendees: 45,
+    description:
+      "Technical workshop on privacy-preserving technologies in blockchain, featuring hands-on sessions with zero-knowledge proofs and private transactions.",
+    organizer: "0xabcd...efgh",
+    totalExpenses: 1200,
+    links: ["https://github.com/zuzalu/privacy-workshop", "https://twitter.com/zuzalu/status/1234567891"],
+    photos: ["/placeholder.svg?height=200&width=300", "/placeholder.svg?height=200&width=300"],
+    receipts: [
+      { name: "Workshop_materials.pdf", type: "pdf" },
+      { name: "Refreshments_receipt.jpg", type: "image" },
+    ],
+  },
+  {
+    id: 3,
+    name: "Longevity Research Symposium",
+    date: "May 22, 2024",
+    place: "Zurich, Switzerland",
+    attendees: 80,
+    description:
+      "Academic symposium bringing together researchers, biotech entrepreneurs, and longevity enthusiasts to discuss latest breakthroughs in aging research.",
+    organizer: "0x9876...5432",
+    totalExpenses: 3400,
+    links: [
+      "https://longevity.zuzalu.org",
+      "https://drive.google.com/folder/longevity-symposium",
+      "https://www.youtube.com/playlist?list=PLexample",
+    ],
+    photos: [
+      "/placeholder.svg?height=200&width=300",
+      "/placeholder.svg?height=200&width=300",
+      "/placeholder.svg?height=200&width=300",
+      "/placeholder.svg?height=200&width=300",
+    ],
+    receipts: [
+      { name: "Conference_hall_rental.pdf", type: "pdf" },
+      { name: "Speaker_travel_expenses.pdf", type: "pdf" },
+      { name: "Lunch_catering.jpg", type: "image" },
+      { name: "AV_equipment.pdf", type: "pdf" },
+    ],
+  },
+  {
+    id: 4,
+    name: "DeFi Security Meetup",
+    date: "June 10, 2024",
+    place: "Berlin, Germany",
+    attendees: 35,
+    description:
+      "Community meetup focused on DeFi security best practices, smart contract auditing, and recent vulnerability case studies.",
+    organizer: "0x5555...7777",
+    totalExpenses: 850,
+    links: ["https://meetup.com/zuzalu-berlin/events/defi-security", "https://twitter.com/zuzalu/status/1234567892"],
+    photos: ["/placeholder.svg?height=200&width=300", "/placeholder.svg?height=200&width=300"],
+    receipts: [
+      { name: "Venue_booking.pdf", type: "pdf" },
+      { name: "Pizza_and_drinks.jpg", type: "image" },
+    ],
+  },
+  {
+    id: 5,
+    name: "Regenerative Finance Summit",
+    date: "July 5, 2024",
+    place: "Costa Rica",
+    attendees: 95,
+    description:
+      "Multi-day summit exploring the intersection of regenerative economics, environmental sustainability, and blockchain technology.",
+    organizer: "0x2222...8888",
+    totalExpenses: 4200,
+    links: [
+      "https://regen.zuzalu.org",
+      "https://drive.google.com/folder/regen-finance-summit",
+      "https://twitter.com/zuzalu/status/1234567893",
+      "https://www.instagram.com/zuzalu/posts/regen-summit",
+    ],
+    photos: [
+      "/placeholder.svg?height=200&width=300",
+      "/placeholder.svg?height=200&width=300",
+      "/placeholder.svg?height=200&width=300",
+      "/placeholder.svg?height=200&width=300",
+      "/placeholder.svg?height=200&width=300",
+    ],
+    receipts: [
+      { name: "Accommodation_expenses.pdf", type: "pdf" },
+      { name: "Local_transport.pdf", type: "pdf" },
+      { name: "Meals_and_catering.jpg", type: "image" },
+      { name: "Activity_materials.pdf", type: "pdf" },
+      { name: "Venue_setup.jpg", type: "image" },
+    ],
+  },
+]
