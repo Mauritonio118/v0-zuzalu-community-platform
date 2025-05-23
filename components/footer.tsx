@@ -4,15 +4,15 @@ import { Twitter, Github } from "lucide-react"
 export function Footer() {
   return (
     <footer className="w-full border-t border-border/40 bg-background py-8">
-      <div className="container grid gap-8 md:grid-cols-3">
-        <div className="space-y-4">
+      <div className="container grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4">
+        <div className="space-y-4 flex flex-col items-center md:items-start text-center md:text-left">
           <h3 className="text-lg font-semibold">Zuzalu Treasury</h3>
           <p className="text-sm text-muted-foreground">
             Funding Zuzalu gatherings around the world with decentralized yields.
           </p>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-4 flex flex-col items-center md:items-center text-center">
           <h3 className="text-lg font-semibold">Links</h3>
           <ul className="space-y-2 text-sm">
             <li>
@@ -33,7 +33,7 @@ export function Footer() {
           </ul>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-4 flex flex-col items-center md:items-end text-center md:text-right">
           <h3 className="text-lg font-semibold">Connect</h3>
           <div className="flex space-x-4">
             <Link
@@ -58,8 +58,8 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="container mt-8 pt-8 border-t border-border/40">
-        <p className="text-center text-sm text-muted-foreground">
+      <div className="container mt-8 pt-8 border-t border-border/40 text-center">
+        <p className="text-sm text-muted-foreground">
           &copy; {new Date().getFullYear()} Zuzalu Community Treasury. All rights reserved.
         </p>
       </div>

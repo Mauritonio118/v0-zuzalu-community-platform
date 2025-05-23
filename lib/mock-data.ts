@@ -142,7 +142,7 @@ export const fundDistributionData = [
   { name: "Other", value: 10 },
 ]
 
-// Steps for "How it works" section
+// Steps for "How it works" section - Intercambiados pasos 2 y 3
 export const howItWorksSteps = [
   {
     title: "Apply to the whitelist",
@@ -150,14 +150,14 @@ export const howItWorksSteps = [
     icon: "ClipboardList",
   },
   {
-    title: "Organize an event",
-    description: "Plan and prepare your Zuzalu gathering or event.",
-    icon: "Calendar",
-  },
-  {
     title: "Receive funds in your petty cash",
     description: "Get access to funds for your event expenses.",
     icon: "Wallet",
+  },
+  {
+    title: "Organize an event",
+    description: "Plan and prepare your Zuzalu gathering or event.",
+    icon: "Calendar",
   },
   {
     title: "Hold the event and upload the report",

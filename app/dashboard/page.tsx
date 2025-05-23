@@ -12,8 +12,10 @@ import { useWallet } from "@/components/wallet-provider"
 import { WithdrawalModal } from "@/components/withdrawal-modal"
 import { EventReportForm } from "@/components/event-report-form"
 import { useToast } from "@/hooks/use-toast"
-import { CalendarDays, Users, ArrowRight } from "lucide-react"
+import { CalendarDays, Users, ArrowRight, Filter } from "lucide-react"
 import { pastEventsData } from "@/lib/mock-data"
+import { Switch } from "@/components/ui/switch"
+import { Label } from "@/components/ui/label"
 
 export default function DashboardPage() {
   const { isConnected, isWhitelisted, address, balance, updateBalance } = useWallet()
@@ -22,6 +24,7 @@ export default function DashboardPage() {
 
   const [withdrawalOpen, setWithdrawalOpen] = useState(false)
   const [activeTab, setActiveTab] = useState("petty-cash")
+  const [showOnlyMyEvents, setShowOnlyMyEvents] = useState(false)
 
   useEffect(() => {
     // Only redirect if not connected - allow access regardless of whitelist status
@@ -76,8 +79,20 @@ export default function DashboardPage() {
     )
   }
 
+  // Filter events based on the showOnlyMyEvents toggle
+  const filteredEvents =
+    showOnlyMyEvents && address
+      ? pastEventsData.filter((event) => {
+          // Simplify the comparison by formatting both addresses the same way
+          const eventOrgShort = event.organizer.toLowerCase().replace("...", "")
+          const userAddrShort =
+            address.toLowerCase().substring(0, 6) + address.toLowerCase().substring(address.length - 4)
+          return eventOrgShort.includes(userAddrShort) || userAddrShort.includes(eventOrgShort)
+        })
+      : pastEventsData
+
   // Get the 3 most recent events for the dashboard preview
-  const recentEvents = [...pastEventsData]
+  const recentEvents = [...filteredEvents]
     .sort((a, b) => {
       const dateA = new Date(a.date).getTime()
       const dateB = new Date(b.date).getTime()
@@ -168,41 +183,63 @@ export default function DashboardPage() {
               <div className="space-y-6">
                 <div className="flex items-center justify-between">
                   <h3 className="text-xl font-bold">Recent Community Events</h3>
-                  <Button asChild variant="outline" size="sm">
-                    <Link href="/past-events">
-                      View All Events
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
+                  <div className="flex items-center gap-4">
+                    <div className="flex items-center space-x-2">
+                      <Switch id="show-my-events" checked={showOnlyMyEvents} onCheckedChange={setShowOnlyMyEvents} />
+                      <Label htmlFor="show-my-events" className="flex items-center gap-1 text-sm">
+                        <Filter className="h-3 w-3" />
+                        My Events Only
+                      </Label>
+                    </div>
+                    <Button asChild variant="outline" size="sm">
+                      <Link href="/past-events">
+                        View All Events
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </div>
                 </div>
 
-                <div className="grid gap-4 md:grid-cols-3">
-                  {recentEvents.map((event) => (
-                    <Card key={event.id} className="overflow-hidden">
-                      <CardHeader className="pb-2">
-                        <CardTitle className="text-lg">{event.name}</CardTitle>
-                      </CardHeader>
-                      <CardContent className="pb-2">
-                        <div className="flex flex-col gap-2 text-sm text-muted-foreground">
-                          <div className="flex items-center gap-1">
-                            <CalendarDays className="h-4 w-4" />
-                            {event.date}
+                {recentEvents.length > 0 ? (
+                  <div className="grid gap-4 md:grid-cols-3">
+                    {recentEvents.map((event) => (
+                      <Card key={event.id} className="overflow-hidden">
+                        <CardHeader className="pb-2">
+                          <CardTitle className="text-lg">{event.name}</CardTitle>
+                        </CardHeader>
+                        <CardContent className="pb-2">
+                          <div className="flex flex-col gap-2 text-sm text-muted-foreground">
+                            <div className="flex items-center gap-1">
+                              <CalendarDays className="h-4 w-4" />
+                              {event.date}
+                            </div>
+                            <div className="flex items-center gap-1">
+                              <Users className="h-4 w-4" />
+                              {event.attendees} attendees
+                            </div>
+                            <p className="line-clamp-2 mt-2">{event.description}</p>
                           </div>
-                          <div className="flex items-center gap-1">
-                            <Users className="h-4 w-4" />
-                            {event.attendees} attendees
-                          </div>
-                          <p className="line-clamp-2 mt-2">{event.description}</p>
-                        </div>
-                      </CardContent>
-                      <CardFooter>
-                        <Button asChild variant="ghost" size="sm" className="w-full">
-                          <Link href={`/past-events#event-${event.id}`}>View Details</Link>
-                        </Button>
-                      </CardFooter>
-                    </Card>
-                  ))}
-                </div>
+                        </CardContent>
+                        <CardFooter>
+                          <Button asChild variant="ghost" size="sm" className="w-full">
+                            <Link href={`/past-events#event-${event.id}`}>View Details</Link>
+                          </Button>
+                        </CardFooter>
+                      </Card>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="text-center py-12 border rounded-lg">
+                    <p className="text-muted-foreground">
+                      {showOnlyMyEvents ? "You haven't organized any events yet." : "No events to display."}
+                    </p>
+                    {showOnlyMyEvents && (
+                      <Button variant="outline" className="mt-4" onClick={() => setShowOnlyMyEvents(false)}>
+                        Show All Events
+                      </Button>
+                    )}
+                  </div>
+                )}
               </div>
             </TabsContent>
           </Tabs>

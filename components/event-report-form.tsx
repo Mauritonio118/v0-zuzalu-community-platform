@@ -10,23 +10,35 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/hooks/use-toast"
 import { Upload } from "lucide-react"
+import { format } from "date-fns"
 
 export function EventReportForm() {
   const { toast } = useToast()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [formData, setFormData] = useState({
     eventName: "",
-    datePlace: "",
+    place: "",
     description: "",
     attendees: "",
     links: "",
   })
+  const [eventDate, setEventDate] = useState<Date | undefined>(undefined)
+  const [totalExpenses, setTotalExpenses] = useState<string>("")
   const [photos, setPhotos] = useState<File[]>([])
   const [receipts, setReceipts] = useState<File[]>([])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
+
+    // Para el campo de attendees, validar que sea un número entero no negativo
+    if (name === "attendees") {
+      // Permitir campo vacío o un número entero no negativo
+      if (value === "" || (/^\d+$/.test(value) && Number.parseInt(value) >= 0)) {
+        setFormData((prev) => ({ ...prev, [name]: value }))
+      }
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }))
+    }
   }
 
   const handlePhotoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -41,13 +53,32 @@ export function EventReportForm() {
     }
   }
 
+  const handleTotalExpensesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value
+    // Permitir campo vacío o un número con hasta 2 decimales
+    if (value === "" || /^\d+(\.\d{0,2})?$/.test(value)) {
+      setTotalExpenses(value)
+    }
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    if (!formData.eventName || !formData.datePlace || !formData.description) {
+    if (!formData.eventName || !formData.place || !formData.description || !eventDate || !totalExpenses) {
       toast({
         title: "Missing information",
         description: "Please fill in all required fields.",
+        variant: "destructive",
+      })
+      return
+    }
+
+    // Validar que totalExpenses sea un número válido
+    const expensesAmount = Number.parseFloat(totalExpenses)
+    if (isNaN(expensesAmount) || expensesAmount < 0) {
+      toast({
+        title: "Invalid expenses amount",
+        description: "Please enter a valid positive number for total expenses.",
         variant: "destructive",
       })
       return
@@ -67,11 +98,13 @@ export function EventReportForm() {
       // Reset form
       setFormData({
         eventName: "",
-        datePlace: "",
+        place: "",
         description: "",
         attendees: "",
         links: "",
       })
+      setEventDate(undefined)
+      setTotalExpenses("")
       setPhotos([])
       setReceipts([])
     } catch (error) {
@@ -101,8 +134,25 @@ export function EventReportForm() {
             </div>
 
             <div className="grid gap-2">
-              <Label htmlFor="datePlace">Date and Place *</Label>
-              <Input id="datePlace" name="datePlace" value={formData.datePlace} onChange={handleChange} required />
+              <Label htmlFor="eventDate">Event Date *</Label>
+              <div className="flex gap-2">
+                <Input
+                  id="eventDate"
+                  type="date"
+                  value={eventDate ? format(eventDate, "yyyy-MM-dd") : ""}
+                  onChange={(e) => {
+                    const date = e.target.value ? new Date(e.target.value) : undefined
+                    setEventDate(date)
+                  }}
+                  className="w-full"
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="grid gap-2">
+              <Label htmlFor="place">Place *</Label>
+              <Input id="place" name="place" value={formData.place} onChange={handleChange} required />
             </div>
 
             <div className="grid gap-2">
@@ -119,11 +169,21 @@ export function EventReportForm() {
 
             <div className="grid gap-2">
               <Label htmlFor="attendees">Estimated Number of Attendees</Label>
-              <Input id="attendees" name="attendees" type="number" value={formData.attendees} onChange={handleChange} />
+              <Input
+                id="attendees"
+                name="attendees"
+                type="number"
+                min="0"
+                step="1"
+                value={formData.attendees}
+                onChange={handleChange}
+                placeholder="0"
+              />
+              <p className="text-xs text-muted-foreground">Enter a whole number (0 or greater)</p>
             </div>
 
             <div className="grid gap-2">
-              <Label htmlFor="links">Links (Drive, social media, etc.)</Label>
+              <Label htmlFor="links">Links (Luma, Drive, social media, etc.)</Label>
               <Textarea
                 id="links"
                 name="links"
@@ -174,6 +234,19 @@ export function EventReportForm() {
                   </span>
                 </Label>
               </div>
+            </div>
+
+            <div className="grid gap-2">
+              <Label htmlFor="totalExpenses">Total Expenses (USD) *</Label>
+              <Input
+                id="totalExpenses"
+                type="text"
+                value={totalExpenses}
+                onChange={handleTotalExpensesChange}
+                placeholder="0.00"
+                required
+              />
+              <p className="text-xs text-muted-foreground">Enter a number with up to 2 decimal places</p>
             </div>
           </div>
 
