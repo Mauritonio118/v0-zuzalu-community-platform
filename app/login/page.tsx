@@ -31,7 +31,7 @@ export default function LoginPage() {
         <Card className="w-full max-w-md">
           <CardHeader className="text-center">
             <CardTitle className="text-2xl">Connect Your Wallet</CardTitle>
-            <CardDescription>Connect your wallet to access the Zuzalu Community Treasury</CardDescription>
+            <CardDescription>Connect your wallet to access ZuFood</CardDescription>
           </CardHeader>
           <CardContent className="flex flex-col items-center">
             <p className="text-center text-muted-foreground mb-6">

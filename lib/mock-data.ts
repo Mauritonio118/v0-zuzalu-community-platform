@@ -146,17 +146,17 @@ export const fundDistributionData = [
 export const howItWorksSteps = [
   {
     title: "Apply to the whitelist",
-    description: "Submit your application to join the Zuzalu community treasury.",
+    description: "Submit your application to join the ZuFood community.",
     icon: "ClipboardList",
   },
   {
     title: "Receive funds in your petty cash",
-    description: "Get access to funds for your event expenses.",
+    description: "Get access to funds for your food event expenses.",
     icon: "Wallet",
   },
   {
     title: "Organize an event",
-    description: "Plan and prepare your Zuzalu gathering or event.",
+    description: "Plan and prepare your food gathering or event.",
     icon: "Calendar",
   },
   {

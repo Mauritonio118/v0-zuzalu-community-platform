@@ -6,10 +6,8 @@ export function Footer() {
     <footer className="w-full border-t border-border/40 bg-background py-8">
       <div className="container grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4">
         <div className="space-y-4 flex flex-col items-center md:items-start text-center md:text-left">
-          <h3 className="text-lg font-semibold">Zuzalu Treasury</h3>
-          <p className="text-sm text-muted-foreground">
-            Funding Zuzalu gatherings around the world with decentralized yields.
-          </p>
+          <h3 className="text-lg font-semibold">ZuFood</h3>
+          <p className="text-sm text-muted-foreground">Fueling the Zuitzerland community with food.</p>
         </div>
 
         <div className="space-y-4 flex flex-col items-center md:items-center text-center">
@@ -59,9 +57,7 @@ export function Footer() {
       </div>
 
       <div className="container mt-8 pt-8 border-t border-border/40 text-center">
-        <p className="text-sm text-muted-foreground">
-          &copy; {new Date().getFullYear()} Zuzalu Community Treasury. All rights reserved.
-        </p>
+        <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} ZuFood. All rights reserved.</p>
       </div>
     </footer>
   )

@@ -110,7 +110,7 @@ export default function WhitelistPage() {
             <Card>
               <CardHeader>
                 <CardTitle>Application Submitted</CardTitle>
-                <CardDescription>Thank you for applying to the Zuzalu Community Treasury whitelist.</CardDescription>
+                <CardDescription>Thank you for applying to the ZuFood whitelist.</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="text-center space-y-4">
@@ -123,9 +123,7 @@ export default function WhitelistPage() {
             <Card>
               <CardHeader>
                 <CardTitle>Whitelist Application</CardTitle>
-                <CardDescription>
-                  Fill out this form to apply for the Zuzalu Community Treasury whitelist.
-                </CardDescription>
+                <CardDescription>Fill out this form to apply for the ZuFood whitelist.</CardDescription>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">

@@ -57,7 +57,7 @@ export function WalletProvider({ children }: { children: ReactNode }) {
         const account = accounts[0]
 
         // Request signature to verify ownership (optional)
-        const message = "Sign this message to connect to Zuzalu Treasury"
+        const message = "Sign this message to connect to ZuFood"
         await window.ethereum.request({
           method: "personal_sign",
           params: [message, account],

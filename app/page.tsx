@@ -16,9 +16,9 @@ export default function Home() {
         <section className="py-20 md:py-28">
           <div className="container">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">A fund forever</h1>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">ZuFood</h1>
               <p className="text-xl md:text-2xl text-muted-foreground mb-10">
-                Funding Zuzalu gatherings around the world with decentralized yields
+                Fueling the Zuitzerland community with food
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="lg">
