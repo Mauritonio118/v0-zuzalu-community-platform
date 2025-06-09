@@ -57,7 +57,13 @@ export function ConnectWalletButton({
   }
 
   return (
-    <Button variant={variant} size={size} className={className} onClick={handleConnect} disabled={isConnecting}>
+    <Button
+      variant={variant}
+      size={size}
+      className={`${className} ${variant === "default" ? "text-white" : variant === "outline" ? "border-primary text-primary hover:bg-primary hover:text-white" : ""}`}
+      onClick={handleConnect}
+      disabled={isConnecting}
+    >
       {isConnecting ? "Connecting..." : "Connect Wallet"}
     </Button>
   )

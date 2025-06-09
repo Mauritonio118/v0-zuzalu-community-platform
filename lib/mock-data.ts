@@ -146,17 +146,17 @@ export const fundDistributionData = [
 export const howItWorksSteps = [
   {
     title: "Apply to the whitelist",
-    description: "Submit your application to join the ZuFood community.",
+    description: "Submit your application to join the Campus On Chain community.",
     icon: "ClipboardList",
   },
   {
     title: "Receive funds in your petty cash",
-    description: "Get access to funds for your food event expenses.",
+    description: "Get access to funds for your university event expenses.",
     icon: "Wallet",
   },
   {
     title: "Organize an event",
-    description: "Plan and prepare your food gathering or event.",
+    description: "Plan and prepare your university gathering or event.",
     icon: "Calendar",
   },
   {
@@ -175,17 +175,17 @@ export const howItWorksSteps = [
 export const pastEventsData = [
   {
     id: 1,
-    name: "Zuzalu Montenegro Kickoff",
+    name: "Campus Kickoff",
     date: "March 15, 2024",
-    place: "Budva, Montenegro",
+    place: "University of Technology",
     attendees: 120,
     description:
-      "Opening ceremony for the Zuzalu Montenegro residency with welcome talks, networking sessions, and community building activities.",
+      "Opening ceremony for the university semester with welcome talks, networking sessions, and community building activities.",
     organizer: "0x1234...5678",
     totalExpenses: 2850,
     links: [
-      "https://drive.google.com/folder/zuzalu-montenegro-kickoff",
-      "https://twitter.com/zuzalu/status/1234567890",
+      "https://drive.google.com/folder/campus-kickoff",
+      "https://twitter.com/campusonchain/status/1234567890",
       "https://www.youtube.com/watch?v=example1",
     ],
     photos: [
@@ -201,15 +201,18 @@ export const pastEventsData = [
   },
   {
     id: 2,
-    name: "Crypto Privacy Workshop",
+    name: "Blockchain Workshop",
     date: "April 8, 2024",
-    place: "Lisbon, Portugal",
+    place: "Tech University",
     attendees: 45,
     description:
-      "Technical workshop on privacy-preserving technologies in blockchain, featuring hands-on sessions with zero-knowledge proofs and private transactions.",
+      "Technical workshop on blockchain technologies, featuring hands-on sessions with smart contracts and decentralized applications.",
     organizer: "0xabcd...efgh",
     totalExpenses: 1200,
-    links: ["https://github.com/zuzalu/privacy-workshop", "https://twitter.com/zuzalu/status/1234567891"],
+    links: [
+      "https://github.com/campusonchain/blockchain-workshop",
+      "https://twitter.com/campusonchain/status/1234567891",
+    ],
     photos: ["/placeholder.svg?height=200&width=300", "/placeholder.svg?height=200&width=300"],
     receipts: [
       { name: "Workshop_materials.pdf", type: "pdf" },
@@ -218,17 +221,17 @@ export const pastEventsData = [
   },
   {
     id: 3,
-    name: "Longevity Research Symposium",
+    name: "Research Symposium",
     date: "May 22, 2024",
-    place: "Zurich, Switzerland",
+    place: "State University",
     attendees: 80,
     description:
-      "Academic symposium bringing together researchers, biotech entrepreneurs, and longevity enthusiasts to discuss latest breakthroughs in aging research.",
+      "Academic symposium bringing together researchers, entrepreneurs, and students to discuss latest breakthroughs in technology research.",
     organizer: "0x9876...5432",
     totalExpenses: 3400,
     links: [
-      "https://longevity.zuzalu.org",
-      "https://drive.google.com/folder/longevity-symposium",
+      "https://research.campusonchain.org",
+      "https://drive.google.com/folder/research-symposium",
       "https://www.youtube.com/playlist?list=PLexample",
     ],
     photos: [
@@ -246,15 +249,18 @@ export const pastEventsData = [
   },
   {
     id: 4,
-    name: "DeFi Security Meetup",
+    name: "Web3 Security Meetup",
     date: "June 10, 2024",
-    place: "Berlin, Germany",
+    place: "Digital University",
     attendees: 35,
     description:
-      "Community meetup focused on DeFi security best practices, smart contract auditing, and recent vulnerability case studies.",
+      "Community meetup focused on Web3 security best practices, smart contract auditing, and recent vulnerability case studies.",
     organizer: "0x5555...7777",
     totalExpenses: 850,
-    links: ["https://meetup.com/zuzalu-berlin/events/defi-security", "https://twitter.com/zuzalu/status/1234567892"],
+    links: [
+      "https://meetup.com/campusonchain/events/web3-security",
+      "https://twitter.com/campusonchain/status/1234567892",
+    ],
     photos: ["/placeholder.svg?height=200&width=300", "/placeholder.svg?height=200&width=300"],
     receipts: [
       { name: "Venue_booking.pdf", type: "pdf" },
@@ -263,19 +269,19 @@ export const pastEventsData = [
   },
   {
     id: 5,
-    name: "Regenerative Finance Summit",
+    name: "Innovation Summit",
     date: "July 5, 2024",
-    place: "Costa Rica",
+    place: "Global University",
     attendees: 95,
     description:
-      "Multi-day summit exploring the intersection of regenerative economics, environmental sustainability, and blockchain technology.",
+      "Multi-day summit exploring the intersection of technology innovation, sustainability, and blockchain applications in education.",
     organizer: "0x2222...8888",
     totalExpenses: 4200,
     links: [
-      "https://regen.zuzalu.org",
-      "https://drive.google.com/folder/regen-finance-summit",
-      "https://twitter.com/zuzalu/status/1234567893",
-      "https://www.instagram.com/zuzalu/posts/regen-summit",
+      "https://innovation.campusonchain.org",
+      "https://drive.google.com/folder/innovation-summit",
+      "https://twitter.com/campusonchain/status/1234567893",
+      "https://www.instagram.com/campusonchain/posts/innovation-summit",
     ],
     photos: [
       "/placeholder.svg?height=200&width=300",

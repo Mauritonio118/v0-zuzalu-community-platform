@@ -31,9 +31,9 @@ export function HowItWorks() {
     <section className="py-12">
       <div className="container">
         <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold tracking-tight">How does it work?</h2>
+          <h2 className="text-3xl font-bold tracking-tight text-primary">How does it work?</h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-            Follow these simple steps to organize your Zuzalu event and receive funding
+            Follow these simple steps to organize your university event and receive funding
           </p>
         </div>
 
@@ -41,7 +41,7 @@ export function HowItWorks() {
           {howItWorksSteps.map((step, index) => {
             const Icon = getIcon(step.icon)
             return (
-              <Card key={index} className="relative">
+              <Card key={index} className="relative border-primary/20 hover:border-primary/40 transition-colors">
                 <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold">
                   {index + 1}
                 </div>
@@ -49,7 +49,7 @@ export function HowItWorks() {
                   <div className="mb-2">
                     <Icon className="h-8 w-8 text-primary" />
                   </div>
-                  <CardTitle>{step.title}</CardTitle>
+                  <CardTitle className="text-white">{step.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <CardDescription>{step.description}</CardDescription>

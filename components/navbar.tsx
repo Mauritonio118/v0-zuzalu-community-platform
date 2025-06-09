@@ -7,6 +7,7 @@ import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useWallet } from "@/components/wallet-provider"
 import { ConnectWalletButton } from "@/components/connect-wallet-button"
+import Image from "next/image"
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -26,12 +27,18 @@ export function Navbar() {
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center gap-2">
-            <span className="text-xl font-bold">ZuFood</span>
+            <Image
+              src="/campus-on-chain-logo.jpg"
+              alt="Campus On Chain"
+              width={120}
+              height={32}
+              className="h-8 w-auto"
+            />
           </Link>
         </div>
 
         {/* Mobile menu button */}
-        <button className="block md:hidden" onClick={toggleMenu} aria-label="Toggle menu">
+        <button className="block md:hidden text-primary" onClick={toggleMenu} aria-label="Toggle menu">
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
@@ -67,7 +74,12 @@ export function Navbar() {
           {isConnected ? (
             <div className="flex items-center gap-2">
               <span className="text-sm text-muted-foreground">{formatAddress(address || "")}</span>
-              <Button variant="outline" size="sm" onClick={disconnect}>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={disconnect}
+                className="border-primary text-primary hover:bg-primary hover:text-white"
+              >
                 Disconnect
               </Button>
             </div>
@@ -120,6 +132,7 @@ export function Navbar() {
                       disconnect()
                       setIsMenuOpen(false)
                     }}
+                    className="border-primary text-primary hover:bg-primary hover:text-white"
                   >
                     Disconnect
                   </Button>

@@ -8,8 +8,8 @@ import { WalletProvider } from "@/components/wallet-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "ZuFood",
-  description: "Fueling the Zuitzerland community with food",
+  title: "Campus On Chain",
+  description: "Fueling university communities FOREVER",
     generator: 'v0.dev'
 }
 

@@ -110,7 +110,7 @@ export default function WhitelistPage() {
             <Card>
               <CardHeader>
                 <CardTitle>Application Submitted</CardTitle>
-                <CardDescription>Thank you for applying to the ZuFood whitelist.</CardDescription>
+                <CardDescription>Thank you for applying to the Campus On Chain whitelist.</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="text-center space-y-4">
@@ -123,7 +123,7 @@ export default function WhitelistPage() {
             <Card>
               <CardHeader>
                 <CardTitle>Whitelist Application</CardTitle>
-                <CardDescription>Fill out this form to apply for the ZuFood whitelist.</CardDescription>
+                <CardDescription>Fill out this form to apply for the Campus On Chain whitelist.</CardDescription>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -169,7 +169,7 @@ export default function WhitelistPage() {
                     </div>
 
                     <div className="grid gap-2">
-                      <Label htmlFor="zuzaluExperience">How did you get into Zuzalu?</Label>
+                      <Label htmlFor="zuzaluExperience">How did you hear about Campus On Chain?</Label>
                       <Textarea
                         id="zuzaluExperience"
                         name="zuzaluExperience"
@@ -217,7 +217,11 @@ export default function WhitelistPage() {
                     </div>
                   </div>
 
-                  <Button type="submit" className="w-full" disabled={isSubmitting}>
+                  <Button
+                    type="submit"
+                    className="w-full bg-primary hover:bg-primary/90 text-white"
+                    disabled={isSubmitting}
+                  >
                     {isSubmitting ? "Submitting..." : "Submit Application"}
                   </Button>
                 </form>

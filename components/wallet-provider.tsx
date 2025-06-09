@@ -57,7 +57,7 @@ export function WalletProvider({ children }: { children: ReactNode }) {
         const account = accounts[0]
 
         // Request signature to verify ownership (optional)
-        const message = "Sign this message to connect to ZuFood"
+        const message = "Sign this message to connect to Campus On Chain"
         await window.ethereum.request({
           method: "personal_sign",
           params: [message, account],

@@ -106,10 +106,18 @@ export function WithdrawalModal({ open, onOpenChange, balance, onWithdraw }: Wit
           </div>
         </div>
         <DialogFooter>
-          <Button variant="outline" onClick={() => onOpenChange(false)}>
+          <Button
+            variant="outline"
+            onClick={() => onOpenChange(false)}
+            className="border-primary text-primary hover:bg-primary hover:text-white"
+          >
             Cancel
           </Button>
-          <Button onClick={handleWithdraw} disabled={isProcessing}>
+          <Button
+            onClick={handleWithdraw}
+            disabled={isProcessing}
+            className="bg-primary hover:bg-primary/90 text-white"
+          >
             {isProcessing ? "Processing..." : "Withdraw"}
           </Button>
         </DialogFooter>

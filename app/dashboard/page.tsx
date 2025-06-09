@@ -119,7 +119,11 @@ export default function DashboardPage() {
                     <p className="text-sm text-muted-foreground">Petty Cash Balance</p>
                     <p className="text-2xl font-bold">${balance.toFixed(2)}</p>
                   </div>
-                  <Button onClick={() => setWithdrawalOpen(true)} disabled={balance <= 0}>
+                  <Button
+                    onClick={() => setWithdrawalOpen(true)}
+                    disabled={balance <= 0}
+                    className="bg-primary hover:bg-primary/90 text-white"
+                  >
                     Withdraw
                   </Button>
                 </div>
@@ -148,7 +152,11 @@ export default function DashboardPage() {
                       <p className="text-sm text-muted-foreground mt-2">
                         This is a simulated balance for demonstration purposes.
                       </p>
-                      <Button className="w-full mt-4" onClick={() => setWithdrawalOpen(true)} disabled={balance <= 0}>
+                      <Button
+                        className="w-full bg-primary hover:bg-primary/90 text-white"
+                        onClick={() => setWithdrawalOpen(true)}
+                        disabled={balance <= 0}
+                      >
                         {balance <= 0 ? "No funds available" : "Withdraw Funds"}
                       </Button>
                     </div>

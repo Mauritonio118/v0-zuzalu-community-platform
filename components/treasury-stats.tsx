@@ -15,42 +15,42 @@ export function TreasuryStats() {
 
   return (
     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-      <Card>
+      <Card className="border-primary/20 hover:border-primary/40 transition-colors">
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">Principal</CardTitle>
+          <CardTitle className="text-sm font-medium text-primary">Principal</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">{formatCurrency(treasuryData.principal)}</div>
+          <div className="text-2xl font-bold text-white">{formatCurrency(treasuryData.principal)}</div>
           <p className="text-xs text-muted-foreground">Total locked funds</p>
         </CardContent>
       </Card>
 
-      <Card>
+      <Card className="border-primary/20 hover:border-primary/40 transition-colors">
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">Accumulated Yields</CardTitle>
+          <CardTitle className="text-sm font-medium text-primary">Accumulated Yields</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">{formatCurrency(treasuryData.accumulatedYields)}</div>
+          <div className="text-2xl font-bold text-white">{formatCurrency(treasuryData.accumulatedYields)}</div>
           <p className="text-xs text-muted-foreground">Available for distribution</p>
         </CardContent>
       </Card>
 
-      <Card>
+      <Card className="border-primary/20 hover:border-primary/40 transition-colors">
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">Recent Expenses</CardTitle>
+          <CardTitle className="text-sm font-medium text-primary">Recent Expenses</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">{formatCurrency(treasuryData.expenses)}</div>
+          <div className="text-2xl font-bold text-white">{formatCurrency(treasuryData.expenses)}</div>
           <p className="text-xs text-muted-foreground">Last 6 months</p>
         </CardContent>
       </Card>
 
-      <Card>
+      <Card className="border-primary/20 hover:border-primary/40 transition-colors">
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">Next Distribution</CardTitle>
+          <CardTitle className="text-sm font-medium text-primary">Next Distribution</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">{treasuryData.nextDistribution}</div>
+          <div className="text-2xl font-bold text-white">{treasuryData.nextDistribution}</div>
           <p className="text-xs text-muted-foreground">Mark your calendar</p>
         </CardContent>
       </Card>

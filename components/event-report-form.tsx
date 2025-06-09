@@ -250,7 +250,7 @@ export function EventReportForm() {
             </div>
           </div>
 
-          <Button type="submit" className="w-full" disabled={isSubmitting}>
+          <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-white" disabled={isSubmitting}>
             {isSubmitting ? "Submitting..." : "Submit Report"}
           </Button>
         </form>
