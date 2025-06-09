@@ -30,9 +30,9 @@ export function Navbar() {
             <Image
               src="/campus-on-chain-logo.jpg"
               alt="Campus On Chain"
-              width={120}
-              height={32}
-              className="h-8 w-auto"
+              width={180}
+              height={48}
+              className="h-12 w-auto"
             />
           </Link>
         </div>
